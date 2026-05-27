@@ -6,6 +6,11 @@ from .models import Contact
 
 def contacts(request):
 
+    if request.method == "POST":
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        Contact.objects.create(name=name, phone=phone)
+
     contacts = Contact.objects.all()
     context = { "contacts": contacts }
 
