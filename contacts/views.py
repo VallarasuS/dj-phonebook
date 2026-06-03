@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Contact
 
@@ -15,3 +15,9 @@ def contacts(request):
     context = { "contacts": contacts }
 
     return render(request, "contacts.html", context)
+
+def delete_contact(request, pk):
+    contact = Contact.objects.get(pk=pk)
+    contact.delete()
+
+    return redirect("contacts")
