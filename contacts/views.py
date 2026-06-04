@@ -21,3 +21,21 @@ def delete_contact(request, pk):
     contact.delete()
 
     return redirect("contacts")
+
+def update_contact(request, pk):
+    
+    if request.method == "POST":
+
+        phone = request.POST.get("phone")
+        name = request.POST.get("name")
+
+        contact = Contact.objects.get(pk=pk)
+        contact.phone = phone
+        contact.name = name
+        contact.save()
+
+        return redirect("contacts")
+
+    contact = Contact.objects.get(pk=pk)
+    return render(request, "edit.html", { "contact" : contact })
+    

@@ -30,10 +30,18 @@
                 <div style="display: flex; flex-direction: column; gap: 5px;">
                     <label style="font-weight: bold;"> {{ contact.name }} </label>
                     <label> {{ contact.phone }} </label>
-                    <form method="post" action="{% url 'delete-contact' contact.pk %}">
-                        {% csrf_token %}
-                        <input type="submit" value="delete">
-                    </form>
+
+                    <div style="display: flex; flex-direction: row; gap: 10px;">
+                        <a href="{% url 'update-contact' contact.pk %}">
+                            <input type="button" value="edit" style="width: 100%;">
+                        </a>
+                    
+                        <form method="post" action="{% url 'delete-contact' contact.pk %}">
+                            {% csrf_token %}
+                            <input type="submit" value="delete" style="width: 100%;">
+                        </form>
+                    </div>
+
                 </div>
 
             </div>
