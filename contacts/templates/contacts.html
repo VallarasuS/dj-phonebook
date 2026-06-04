@@ -8,13 +8,16 @@
 </head>
 
 <body>
-    <h3>Contacts</h3>
 
-    <hr>
+    <div style="border-bottom: 1px solid lightgray; 
+        padding-bottom: 10px; 
+        margin-bottom: 10px;">
+        <label style="font-weight:lighter; font-size: x-large;">Contacts</label>
+    </div>
 
     <div style="display: flex; gap: 10px;">
 
-        <div style="display: flex; flex-direction: column; border-radius: 10px; border: 1px solid lightgray; padding: 20px;">
+        <div style="display: flex; flex-direction: column; border-radius: 10px; border: 1px solid lightgray; padding: 20px; width: 50vw;">
 
             {% for contact in contacts %}
 
@@ -61,7 +64,7 @@
 
                 <div style="display: flex; flex-direction: column; gap: 5px;">
 
-                    <h4>Add Contact</h4>
+                    <label style="font-size: large;">Add Contact</label>
 
                     <input type="text" name="name" placeholder="Name">
                     <input type="text" name="phone" placeholder="Phone">
