@@ -39,3 +39,8 @@ def update_contact(request, pk):
     contact = Contact.objects.get(pk=pk)
     return render(request, "edit.html", { "contact" : contact })
     
+
+def delete(request, pk):
+
+    contact = Contact.objects.get(pk=pk)
+    contact.delete()
