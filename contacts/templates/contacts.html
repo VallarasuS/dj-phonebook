@@ -9,6 +9,10 @@
 
 <body>
 
+    {% load static %}
+
+    <img src="{% static 'contacts/pattern.jpg' %}">
+
     <div style="border-bottom: 1px solid lightgray; 
         padding-bottom: 10px; 
         margin-bottom: 10px;">
@@ -17,7 +21,8 @@
 
     <div style="display: flex; gap: 10px;">
 
-        <div style="display: flex; flex-direction: column; border-radius: 10px; border: 1px solid lightgray; padding: 20px; width: 50vw;">
+        <div
+            style="display: flex; flex-direction: column; border-radius: 10px; border: 1px solid lightgray; padding: 20px; width: 50vw;">
 
             {% for contact in contacts %}
 
@@ -36,10 +41,11 @@
                     <label> {{ contact.phone }} </label>
 
                     <div style="display: flex; flex-direction: row; gap: 10px;">
+
                         <a href="{% url 'update-contact' contact.pk %}">
                             <input type="button" value="edit" style="width: 100%;">
                         </a>
-                    
+
                         <form method="post" action="{% url 'delete-contact' contact.pk %}">
                             {% csrf_token %}
                             <input type="submit" value="delete" style="width: 100%;">
